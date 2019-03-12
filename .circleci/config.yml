@@ -48,6 +48,7 @@ jobs:
           command: |
             envsubst < ${HOME}/project/manifest/k8s.tpl.yml > ${HOME}/k8s.yml
             kubectl apply -f ${HOME}/k8s.yml
+            kubectl apply -f ${HOME}/project/manifest/pg.yml
             kubectl rollout status deployment/${PROJECT_NAME}
 workflows:
   version: 2
