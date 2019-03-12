@@ -1,0 +1,51 @@
+{
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "defaultSeverity": "warning",
+  "rules": {
+    "array-type": false,
+    "arrow-return-shorthand": [true, "multiline"],
+    "cyclomatic-complexity": [true, 20],
+    "eofline": false,
+    "forin": false,
+    "interface-name": [false],
+    "linebreak-style": [true, "LF"],
+    "max-line-length": {
+      "options": [180]
+    },
+    "member-access": [true, "no-public"],
+    "member-ordering": false,
+    "no-consecutive-blank-lines": [true, 1],
+    "no-duplicate-variable": true,
+    "no-object-literal-type-assertion": false,
+    "no-implicit-dependencies": [true, "dev"],
+    "no-mergeable-namespace": true,
+    "no-reference-import": true,
+    "no-switch-case-fall-through": true,
+    "no-unnecessary-callback-wrapper": true,
+    "no-unused-expression": [true, "allow-fast-null-checks"],
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "lowercase-first",
+        "named-imports-order": "lowercase-last"
+      }
+    ],
+    "prefer-method-signature": true,
+    "prefer-template": [true],
+    "quotemark": [true, "single", "avoid-escape"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "space-before-function-paren": [
+      true,
+      {
+        "anonymous": "always",
+        "constructor": "never",
+        "method": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "switch-default": true
+  }
+}

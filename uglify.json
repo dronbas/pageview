@@ -1,0 +1,14 @@
+{
+  "mangle": {
+    "toplevel": true,
+    "keep_fnames": true
+  },
+  "compress": {
+    "drop_console": true,
+    "drop_debugger": true
+  },
+  "output": {
+    "max_line_len": 100
+  },
+  "keep_fnames": true
+}

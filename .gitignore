@@ -1,0 +1,6 @@
+bin
+dist
+docker
+reports
+node_modules
+*.log
