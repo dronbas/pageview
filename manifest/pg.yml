@@ -21,7 +21,7 @@ spec:
             - name: POSTGRES_USER
               value: "pageview"
             - name: POSTGRES_PASSWORD
-              value: 123456
+              value: "123456"
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgredb
