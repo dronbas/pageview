@@ -26,15 +26,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: make k8s.yaml
-          command: |
-            ls
-            cd ${HOME}
-            ls
-            cd ${HOME}/repo
-            ls
-            envsubst < ${HOME}/repo/manifest/k8s.tpl.yml > ${HOME}/k8s.yml
-      - run:
           name: Setup Google Cloud SDK
           command: |
             apt-get install -qq -y gettext
@@ -55,6 +46,7 @@ jobs:
       - run:
           name: Deploy to Kubernetes
           command: |
+            envsubst < ${HOME}/project/manifest/k8s.tpl.yml > ${HOME}/k8s.yml
             kubectl apply -f ${HOME}/k8s.yml
             kubectl rollout status deployment/${PROJECT_NAME}
 workflows:
