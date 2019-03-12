@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Deploy to Kubernetes
           command: |
-            envsubst < ${HOME}/project/manifest/k8s.tpl.yml > ${HOME}/k8s.yml
+            envsubst < ${HOME}/repo/manifest/k8s.tpl.yml > ${HOME}/k8s.yml
             kubectl apply -f ${HOME}/k8s.yml
             kubectl rollout status deployment/${PROJECT_NAME}
 workflows:
