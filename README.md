@@ -2,7 +2,7 @@
 
 NodeJS application, which shows the number of pageviews for the past 1 minute (window of last 60 seconds)
 
-Pls try out the latest versions of Gitlab as they offer a complete stack that includes project management, version control, and CI/CD on Kubernetes (see Auto Devops)
+_Pls try out the latest versions of Gitlab as they offer a complete stack that includes project management, version control, and CI/CD on Kubernetes (see Auto Devops)_
 
 ## Before start
 
