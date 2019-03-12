@@ -12,8 +12,8 @@ const transporter = new LocalBus();
 const pgDriver = createPgDriver();
 
 Promise.resolve()
-  // .then(pgDriver.connect)
-  // .then(() => logger.info(`PG connected`))
+  .then(pgDriver.connect)
+  .then(() => logger.info(`PG connected`))
   .then(transporter.connect)
   .then(() => {
     logger.info(`Transporter connected`);
