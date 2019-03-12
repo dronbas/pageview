@@ -22,7 +22,7 @@ spec:
   selector:
     matchLabels:
       app: ${PROJECT_NAME}
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 1
   template:
     metadata:
       labels:
