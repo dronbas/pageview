@@ -1,42 +1,36 @@
-kind: Deployment
-apiVersion: apps/v1
-metadata:
-  name: _APP_NAME_
-  labels:
-    app: _APP_NAME_
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: _APP_NAME_
-
-  # Pod template
-  template:
-    metadata:
-      labels:
-        app: _APP_NAME_
-    spec:
-      containers:
-        - name: test
-          image: registry.gitlab.com/dronbas/pageview:_VERSION_
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
-      imagePullSecrets:
-        - name: gitlab-registry
-
 kind: Service
 apiVersion: v1
 metadata:
-  name: _APP_NAME_
-  labels:
-    app: _APP_NAME_
+  name: ${PROJECT_NAME}
 spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-      name: http
   selector:
-      app: _APP_NAME_
+    app: ${PROJECT_NAME}
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ${PROJECT_NAME}
+  labels:
+    app: ${PROJECT_NAME}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ${PROJECT_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${PROJECT_NAME}
+    spec:
+      containers:
+      - name: ${PROJECT_NAME}
+        image: eu.gcr.io/${GOOGLE_PROJECT_ID}/${PROJECT_NAME}:${CIRCLE_SHA1}
+        ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
